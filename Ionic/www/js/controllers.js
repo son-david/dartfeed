@@ -42,13 +42,13 @@ angular.module('starter.controllers', [])
 })
 
 .controller('PlaylistsCtrl', function($scope) {
-  $scope.playlists = [
-    { title: 'Reggae', id: 1 },
-    { title: 'Chill', id: 2 },
-    { title: 'Dubstep', id: 3 },
-    { title: 'Indie', id: 4 },
-    { title: 'Rap', id: 5 },
-    { title: 'Cowbell', id: 6 }
+  $scope.categories = [
+    { title: 'MoneyTech', id: 1 },
+    { title: 'SportsTech', id: 2 },
+    { title: 'OtherTech', id: 3 },
+    { title: 'OneMore', id: 4 },
+    { title: 'Evenetually', id: 5 },
+    { title: 'Replaced', id: 6 }
   ];
 })
 
