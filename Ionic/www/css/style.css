@@ -1,1 +1,8 @@
 /* Empty. Add your own CSS if you like */
+.userImg {
+  border-radius: 50%;
+  height: 100px;
+  width: 100px;
+  margin: 0 auto;
+  display: block;
+}
