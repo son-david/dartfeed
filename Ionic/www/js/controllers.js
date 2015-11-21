@@ -1,7 +1,7 @@
 
 angular.module('starter.controllers', ['ngOpenFB', 'app.services'])
 
-.controller('AppCtrl', ['$scope', '$ionicModal', '$timeout', 'ngFB', function($scope, $ionicModal, $timeout, ngFB) {
+.controller('AppCtrl', ['$scope', '$ionicModal', '$timeout', 'ngFB', '$location', '$state', '$ionicHistory',  function($scope, $ionicModal, $timeout, ngFB, $location, $state, $ionicHistory) {
 
   // With the new view caching in Ionic, Controllers are only called
   // when they are recreated or on app start, instead of every page change.
@@ -47,11 +47,18 @@ angular.module('starter.controllers', ['ngOpenFB', 'app.services'])
         function (response) {
             if (response.status === 'connected') {
                 console.log('Facebook login succeeded');
-                $scope.closeLogin();
+                $ionicHistory.nextViewOptions({
+                  disableBack: true
+                });
+                  $location.path('/app/profile');
             } else {
                 alert('Facebook login failed');
             }
         });
+  };
+
+  $scope.fbLogOut = function () {
+    ngFB.logout();
   };
 }])
 

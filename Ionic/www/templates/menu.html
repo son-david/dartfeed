@@ -18,16 +18,13 @@
     </ion-header-bar>
     <ion-content>
       <ion-list>
-        <ion-item menu-close ng-click="login()">
-          Login
-        </ion-item>
         <ion-item menu-close href="#/app/profile">
           Profile
         </ion-item>
         <ion-item menu-close href="#/app/articles">
           My Articles
         </ion-item>
-        <ion-item menu-close href="#/app/logout">
+        <ion-item menu-close ng-controller="AppCtrl" ng-click="fbLogOut()" href="#/app/logout">
           Logout
         </ion-item>
       </ion-list>
