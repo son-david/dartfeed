@@ -29,6 +29,7 @@ angular.module('starter.controllers', [])
     $scope.modal.show();
   };
 
+
   // Perform the login action when the user submits the login form
   $scope.doLogin = function() {
     console.log('Doing login', $scope.loginData);
@@ -41,7 +42,7 @@ angular.module('starter.controllers', [])
   };
 })
 
-.controller('UserController', function($scope) {
+.controller('UserController', function($scope, $state) {
   $scope.categories = [
     { title: 'MoneyTech', id: 1 },
     { title: 'SportsTech', id: 2 },
@@ -50,6 +51,9 @@ angular.module('starter.controllers', [])
     { title: 'Evenetually', id: 5 },
     { title: 'Replaced', id: 6 }
   ];
+  $scope.addCatNav = function () {
+    $state.go('app.addCat');
+  }
 })
 
 .controller('PlaylistCtrl', function($scope, $stateParams) {

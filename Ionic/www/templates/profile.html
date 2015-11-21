@@ -8,7 +8,7 @@
       <ion-item ng-repeat="category in categories">
         {{category.title}}
       </ion-item>
-      <button class="button button-full button-positive">
+      <button ng-click='addCatNav()' class="button button-full button-positive">
         Add New Categories
       </button>
     </ion-list>
