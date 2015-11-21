@@ -62,7 +62,7 @@ angular.module('starter.controllers', ['ngOpenFB', 'app.services'])
   };
 }])
 
-.controller('UserController', ['$scope', '$state', 'ngFB' function($scope, $state, ngFB) {
+.controller('UserController', ['$scope', '$state', function($scope, $state) {
   $scope.categories = [
     { title: 'MoneyTech', id: 1 },
     { title: 'SportsTech', id: 2 },
