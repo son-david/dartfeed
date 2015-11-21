@@ -48,3 +48,16 @@ angular.module('app.services', [])
   }
 
 })
+.factory('Helper', function ($http){
+
+  var me = [];
+
+  var store = function (val) {
+    me[0] = (val);
+  }
+
+  return {
+    me : me,
+    store : store
+  }
+});
