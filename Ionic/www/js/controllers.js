@@ -9,7 +9,7 @@ angular.module('starter.controllers', ['ngOpenFB', 'app.services'])
   // listen for the $ionicView.enter event:
   //$scope.$on('$ionicView.enter', function(e) {
   //});
-
+  $scope.me = {};
   // Form data for the login modal
   $scope.loginData = {};
 
@@ -45,15 +45,30 @@ angular.module('starter.controllers', ['ngOpenFB', 'app.services'])
   $scope.fbLogin = function () {
     ngFB.login({scope: 'email, user_friends'}).then(
         function (response) {
-            if (response.status === 'connected') {
-                console.log('Facebook login succeeded');
-                $ionicHistory.nextViewOptions({
-                  disableBack: true
-                });
-                  $location.path('/app/profile');
-            } else {
-                alert('Facebook login failed');
+
+          ngFB.api({path: '/me'})
+            .then(function (res) {
+              console.log('pizza');
+              angular.extend($scope.me, res);
+            }, function( err ) {
+              console.log(err);
+          });
+          ngFB.api({
+            path: '/me/picture',
+            params: {
+                redirect: false,
+                height: 50,
+                width: 50
             }
+            }).then(function( res ) {
+              angular.extend($scope.me, {picture: res.data.url});
+            }).then(function() {
+              $ionicHistory.nextViewOptions({
+                disableBack: true
+              });
+              console.log($scope.me);
+                $location.path('/app/profile');
+            });
         });
   };
 
