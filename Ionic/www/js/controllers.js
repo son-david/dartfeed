@@ -53,6 +53,10 @@ angular.module('starter.controllers', ['ngOpenFB', 'app.services'])
             }
         });
   };
+
+  $scope.fbLogOut = function () {
+    ngFB.logout();
+  };
 }])
 
 .controller('UserController', ['$scope', '$state', function($scope, $state) {
