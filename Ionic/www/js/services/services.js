@@ -30,7 +30,7 @@ angular.module('app.services', [])
 
   var getArticlesForUser = function (){
     return $http({
-      url: 'localhost:8000/api/articles', 
+      url: 'http://localhost:8000/api/articles', 
       method: 'GET'
     });
   }

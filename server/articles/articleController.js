@@ -6,7 +6,6 @@ Promise.promisifyAll(require('mongoose'));
 module.exports = {
 
   getArticles : function (req, res, next) {
-    console.log('yesyesyes', req);
 
     numPopularArticles = 5; // number of articles to return for 'popular' parameter
     numArticlesPerPage = 20; // for future feature: add 'offset' parameter to limit # of articles returned
@@ -22,9 +21,6 @@ module.exports = {
       Article.find({}).sort({ visitsCount: -1 })
         .then(function (topArticles) {
           topArticles.splice(numPopularArticles,topArticles.length);
-          
-          console.log('!!!!!!!!!!!!!!!!!!');
-          res.header('Access-Control-Allow-Origin', '*');
 
           res.send(topArticles);
           return topArticles;
