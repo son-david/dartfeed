@@ -1,4 +1,5 @@
-angular.module('starter.controllers', ['ngOpenFB'])
+
+angular.module('starter.controllers', ['ngOpenFB', 'app.services'])
 
 .controller('AppCtrl', ['$scope', '$ionicModal', '$timeout', 'ngFB', function($scope, $ionicModal, $timeout, ngFB) {
 
@@ -71,5 +72,15 @@ angular.module('starter.controllers', ['ngOpenFB'])
 .controller('PlaylistCtrl', function($scope, $stateParams) {
 })
 
-.controller('ArticlesCtrl', function($scope, $stateParams) {
+.controller('ArticlesCtrl', function($scope, $stateParams, Feed) {
+
+  $scope.getArticlesForUser = function (){
+    Feed.getArticlesForUser()
+      .then(function (articles){
+        $scope.articles = articles;
+      });
+  }
+
+  $scope.getArticlesForUser();
+
 });

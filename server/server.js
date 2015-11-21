@@ -14,6 +14,7 @@ var defaultUser = require('./middleware/defaultUser');
 mongoose.connect('mongodb://localhost/dartfeed'); 
 
 var app = express();
+
 var expressRouter = express.Router(); 
 app.use(express.static(__dirname + '/../client'));
 
