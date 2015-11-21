@@ -59,6 +59,7 @@ angular.module('starter.controllers', ['ngOpenFB', 'app.services'])
 
   $scope.fbLogOut = function () {
     ngFB.logout();
+
   };
 }])
 
