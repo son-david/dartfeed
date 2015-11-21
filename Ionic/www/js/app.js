@@ -76,6 +76,16 @@ angular.module('starter', ['ionic', 'starter.controllers'])
         controller: 'PlaylistCtrl'
       }
     }
+  })
+
+  .state('app.articles', {
+    url: '/articles/:catName',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/articles.html',
+        controller: 'ArticlesCtrl'
+      }
+    }
   });
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/app/profile');
