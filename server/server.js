@@ -1,5 +1,5 @@
 var express = require('express'); 
-var session = require('express-session');
+// var session = require('express-session');
 var mongoose = require('mongoose'); 
 var router = require('./router.js'); 
 var bodyParser = require('body-parser'); 
@@ -25,44 +25,43 @@ app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-//set up facebook auth
-app.use(session({secret: 'marmot'}));  
-app.use(passport.initialize()); 
-app.use(passport.session()); 
-passport.use(new FacebookStrategy({
-    clientID: config.fbClientID,
-    clientSecret: config.fbClientSecret,
-    callbackURL: config.fbCallback 
-    //profileFields: ['email', 'profileUrl']
-  },
-  function(accessToken, refreshToken, profile, done) {
-      console.log(accessToken);
-      console.log(profile);
+// //set up facebook auth
+// app.use(session({secret: 'marmot'}));  
+// app.use(passport.initialize()); 
+// app.use(passport.session()); 
+// passport.use(new FacebookStrategy({
+//     clientID: config.fbClientID,
+//     clientSecret: config.fbClientSecret,
+//     callbackURL: config.fbCallback 
+//     //profileFields: ['email', 'profileUrl']
+//   },
+//   function(accessToken, refreshToken, profile, done) {
+//       console.log(accessToken);
+//       console.log(profile);
 
-      ///store in the db 
-      User.findOne({fbId:profile.id}, function(err, user){
-        if(!user){
-          return User.create({
-            username: profile.displayName,
-            fbToken: accessToken, 
-            fbId: profile.id
-          });
+//       ///store in the db 
+//       User.findOne({fbId:profile.id}, function(err, user){
+//         if(!user){
+//           return User.create({
+//             username: profile.displayName,
+//             fbToken: accessToken, 
+//             fbId: profile.id
+//           });
 
-        } else {
-          //return existing user
-          return user; 
-        }
-      })
-      .then(function (user){
-        console.log("then user ", user);
-        done(null, user); 
-      });
-  }
-));
+//         } else {
+//           //return existing user
+//           return user; 
+//         }
+//       })
+//       .then(function (user){
+//         console.log("then user ", user);
+//         done(null, user); 
+//       });
+//   }
+// ));
 
 app.use(logger);
 app.use(bodyParser.json());
-//app.use('/', expressRouter); 
 
 //get called after login - updates session with user.id 
 passport.serializeUser(function(user, done) {
@@ -89,8 +88,6 @@ passport.deserializeUser(function(id, done) {
 
 app.use(function (req, res, next){
   console.log("user setting conditional");
-  console.log(req.originalUrl);
-  console.log(req.user);
   if(req.originalUrl === '/api/auth/callback'){
     next();
   }
@@ -101,6 +98,14 @@ app.use(function (req, res, next){
     next();
   }
 });
+
+app.use(function(req, res, next) {
+  res.set('Access-Control-Allow-Origin','*');
+  res.set('Access-Control-Allow-Headers', 'Content-Type');
+  res.set('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+  console.log('yeesssss');
+  next();
+})
 
 //set up router 
 app.use('/', expressRouter); 
