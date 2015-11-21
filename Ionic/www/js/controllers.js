@@ -109,3 +109,24 @@ angular.module('starter.controllers', ['ngOpenFB', 'app.services'])
   $scope.getArticlesForUser();
 
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+>>>>>>> added href link for categories on profile page
+>>>>>>> added href link for categories on profile page
