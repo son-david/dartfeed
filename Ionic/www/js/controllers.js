@@ -97,6 +97,7 @@ angular.module('starter.controllers', ['ngOpenFB', 'app.services'])
 
 .controller('ArticlesCtrl', function($scope, $stateParams, Feed) {
 
+  $scope.test = 0
   $scope.getArticlesForUser = function (){
     Feed.getArticlesForUser()
       .then(function (articles){

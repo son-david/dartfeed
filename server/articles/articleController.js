@@ -6,7 +6,8 @@ Promise.promisifyAll(require('mongoose'));
 module.exports = {
 
   getArticles : function (req, res, next) {
-
+    console.log('test', req.query);
+    console.log('test', req.user);
     numPopularArticles = 5; // number of articles to return for 'popular' parameter
     numArticlesPerPage = 20; // for future feature: add 'offset' parameter to limit # of articles returned
 
