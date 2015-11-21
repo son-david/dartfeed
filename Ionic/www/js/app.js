@@ -31,7 +31,17 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngOpenFB'])
     abstract: true,
     templateUrl: 'templates/menu.html',
     controller: 'AppCtrl'
-  })
+    })
+
+    .state('app.login', {
+      url: '/login',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/login.html',
+          controller: 'AppCtrl'
+        }
+      }
+    })
 
   .state('app.search', {
     url: '/search',
@@ -89,5 +99,5 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngOpenFB'])
     }
   });
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/app/profile');
+  $urlRouterProvider.otherwise('/app/login');
 });
