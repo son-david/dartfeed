@@ -128,5 +128,3 @@ angular.module('starter.controllers', ['ngOpenFB', 'app.services'])
 
 
 
->>>>>>> added href link for categories on profile page
->>>>>>> added href link for categories on profile page

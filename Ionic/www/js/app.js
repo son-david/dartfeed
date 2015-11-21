@@ -88,7 +88,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngOpenFB'])
       }
     }
   })
-<<<<<<< HEAD
 
   .state('app.articles', {
     url: '/articles/:catName',
@@ -99,17 +98,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngOpenFB'])
       }
     }
   });
-=======
-  .state('app.articles', {
-      url: '/articles/:cat',
-      views: {
-        'menuContent': {
-          templateUrl: 'templates/articles.html',
-          controller: 'ArticlesCtrl'
-        }
-      }
-    });
->>>>>>> added href link for categories on profile page
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/app/login');
 });
