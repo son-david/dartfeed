@@ -1,7 +1,7 @@
 
 angular.module('starter.controllers', ['ngOpenFB', 'app.services'])
 
-.controller('AppCtrl', ['$scope', '$ionicModal', '$timeout', 'ngFB', '$location', '$state', '$ionicHistory',  function($scope, $ionicModal, $timeout, ngFB, $location, $state, $ionicHistory) {
+.controller('AppCtrl', ['$scope', '$ionicModal', '$timeout', 'ngFB', '$location', '$state', '$ionicHistory','Helper',  function($scope, $ionicModal, $timeout, ngFB, $location, $state, $ionicHistory, Helper) {
 
   // With the new view caching in Ionic, Controllers are only called
   // when they are recreated or on app start, instead of every page change.
@@ -66,8 +66,9 @@ angular.module('starter.controllers', ['ngOpenFB', 'app.services'])
               $ionicHistory.nextViewOptions({
                 disableBack: true
               });
-              console.log($scope.me);
-                $location.path('/app/profile');
+              Helper.store($scope.me);
+              console.log('1',$scope.me);
+              $location.path('/app/profile');
             });
         });
   };
@@ -78,7 +79,10 @@ angular.module('starter.controllers', ['ngOpenFB', 'app.services'])
   };
 }])
 
-.controller('UserController', ['$scope', '$state', function($scope, $state) {
+.controller('UserController', ['$scope', '$state','Helper', function($scope, $state, Helper) {
+  
+  $scope.me = Helper.me[0];
+  console.log('look', Helper.me);
 
   $scope.categories = [
     { title: 'MoneyTech', id: 1 },
@@ -96,35 +100,16 @@ angular.module('starter.controllers', ['ngOpenFB', 'app.services'])
 .controller('PlaylistCtrl', function($scope, $stateParams) {
 })
 
-.controller('ArticlesCtrl', function($scope, $stateParams, Feed) {
+.controller('ArticlesCtrl', ['$scope','$stateParams', 'Feed', function($scope, $stateParams, Feed) {
 
+  $scope.articles;
   $scope.test = 0
   $scope.getArticlesForUser = function (){
     Feed.getArticlesForUser()
       .then(function (articles){
+        console.log(articles)
         $scope.articles = articles;
       });
   }
 
-  $scope.getArticlesForUser();
-
-});
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+}]);
