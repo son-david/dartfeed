@@ -58,6 +58,15 @@ angular.module('starter', ['ionic', 'starter.controllers'])
         }
       }
     })
+    .state('app.addCat', {
+      url: '/addCat',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/addCat.html',
+          controller: 'UserController'
+        }
+      }
+    })
 
   .state('app.single', {
     url: '/playlists/:playlistId',
