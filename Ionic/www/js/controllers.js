@@ -80,7 +80,7 @@ angular.module('starter.controllers', ['ngOpenFB', 'app.services'])
 }])
 
 .controller('UserController', ['$scope', '$state','Helper', function($scope, $state, Helper) {
-  
+
   $scope.me = Helper.me[0];
   console.log('look', Helper.me);
 
@@ -102,8 +102,6 @@ angular.module('starter.controllers', ['ngOpenFB', 'app.services'])
 
 .controller('ArticlesCtrl', ['$scope','$stateParams', 'Feed', function($scope, $stateParams, Feed) {
 
-  $scope.articles;
-  $scope.test = 0
   $scope.getArticlesForUser = function (){
     Feed.getArticlesForUser()
       .then(function (articles){
@@ -111,5 +109,5 @@ angular.module('starter.controllers', ['ngOpenFB', 'app.services'])
         $scope.articles = articles;
       });
   }
-
+  $scope.getArticlesForUser();
 }]);
