@@ -41,7 +41,7 @@ angular.module('starter.controllers', [])
   };
 })
 
-.controller('PlaylistsCtrl', function($scope) {
+.controller('UserController', function($scope) {
   $scope.categories = [
     { title: 'MoneyTech', id: 1 },
     { title: 'SportsTech', id: 2 },
