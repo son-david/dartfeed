@@ -10,7 +10,7 @@ angular.module('app.services', [])
 
   var getCategories = function (){
     return $http({
-      url: '/api/categories', 
+      url: 'http://localhost:8000/api/categories', 
       method: 'GET'
     });
   }

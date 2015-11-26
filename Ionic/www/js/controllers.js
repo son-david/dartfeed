@@ -100,14 +100,25 @@ angular.module('starter.controllers', ['ngOpenFB', 'app.services'])
 .controller('PlaylistCtrl', function($scope, $stateParams) {
 })
 
-.controller('ArticlesCtrl', ['$scope','$stateParams', 'Feed', function($scope, $stateParams, Feed) {
+.controller('ArticlesCtrl', ['$scope', '$sce', '$stateParams', 'Feed', function($scope, $sce, $stateParams, Feed) {
 
   $scope.getArticlesForUser = function (){
     Feed.getArticlesForUser()
       .then(function (articles){
         console.log(articles)
         $scope.articles = articles;
+        $scope.url = $sce.trustAsResourceUrl(articles.data[0][0].linkURL)
       });
   }
+
+  $scope.displayCategoriesForUser = function () {
+    Feed.getCategories().then( function (categories) {
+      $scope.categories = categories;
+      $scope.categoryList = categories.data.map(function(el){
+        return el.name;
+      })
+    })
+  }
   $scope.getArticlesForUser();
+  $scope.displayCategoriesForUser();
 }]);
