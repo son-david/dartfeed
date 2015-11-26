@@ -3,9 +3,14 @@
     <h1>Articles</h1>
     <!-- <p>{{categories.data[0].articles}}</p>
     <p> {{categoryList}} </p> -->
-    <div collection-repeat='url in urlListForIframe'>
-    <p>{{url}} </p>
-    <iframe src="{{getIframeSrc(url)}}"></iframe>
+    <!-- <div collection-repeat='url in urlListForIframe'> -->
+    <!-- <p>{{url}} </p> -->
+
+    <!-- <iframe src="{{getIframeSrc(url)}}"></iframe> -->
+    <!-- </div> -->
+    <div collection-repeat = 'test in categories.data[0].articles'>
+    <p>{{test.title}}</p>
+    <img src="{{test.imgURL}}" height='300px' width= '100%'>
     </div>
     <!-- <iframe ng-src="{{url}}"> </iframe> -->
   </ion-content>
