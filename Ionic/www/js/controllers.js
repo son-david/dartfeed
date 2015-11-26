@@ -117,8 +117,21 @@ angular.module('starter.controllers', ['ngOpenFB', 'app.services'])
       $scope.categoryList = categories.data.map(function(el){
         return el.name;
       })
+      $scope.urlListForIframe = categories.data[0].articles.map(function(el){
+        return el.linkURL;
+      })
+      $scope.urlListForIframe.forEach(function(url){
+        $sce.trustAsResourceUrl(url);
+      })
+      console.log($scope.urlListForIframe);
     })
   }
+  $scope.getIframeSrc = function(url){
+    $sce.trustAsResourceUrl(url);
+    $sce.trustAsUrl(url);
+    return url;
+  }
+  $scope.test = $sce.getTrustedResourceUrl
   $scope.getArticlesForUser();
   $scope.displayCategoriesForUser();
 }]);
