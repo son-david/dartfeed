@@ -107,7 +107,7 @@ angular.module('starter.controllers', ['ngOpenFB', 'app.services'])
       .then(function (articles){
         console.log(articles)
         $scope.articles = articles;
-        $scope.url = $sce.trustAsResourceUrl(articles.data[0][0].linkURL)
+        
       });
   }
 
@@ -130,6 +130,14 @@ angular.module('starter.controllers', ['ngOpenFB', 'app.services'])
     $sce.trustAsResourceUrl(url);
     $sce.trustAsUrl(url);
     return url;
+  }
+  $scope.createIframe = function(element,location){
+    var theIframe = document.createElement("iframe");
+    theIframe.src = location;
+    var result = document.getElementsByClassName("holder")[0];
+    console.log(result)
+    $sce.trustAsResourceUrl(location)
+    result.appendChild(theIframe);
   }
   $scope.test = $sce.getTrustedResourceUrl
   $scope.getArticlesForUser();

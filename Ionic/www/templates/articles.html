@@ -1,5 +1,6 @@
 <ion-view view-title="Articles">
   <ion-content>
+    <div class = 'holder'></div>
     <h1>Articles</h1>
     <!-- <p>{{categories.data[0].articles}}</p>
     <p> {{categoryList}} </p> -->
@@ -10,8 +11,9 @@
     <!-- </div> -->
     <div collection-repeat = 'test in categories.data[0].articles'>
     <p>{{test.title}}</p>
-    <img src="{{test.imgURL}}" height='300px' width= '100%'>
+    <a ><img src="{{test.imgURL}}" height='300px' width= '100%' ng-click="createIframe(this,test.linkURL)"></a>
     </div>
+    
     <!-- <iframe ng-src="{{url}}"> </iframe> -->
   </ion-content>
 </ion-view>
