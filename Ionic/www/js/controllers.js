@@ -134,12 +134,14 @@ angular.module('starter.controllers', ['ngOpenFB', 'app.services'])
   $scope.createIframe = function(element,location){
     var theIframe = document.createElement("iframe");
     theIframe.src = location;
+    theIframe.width = "90%";
+    theIframe.height = "100%";
+    theIframe.scrolling = 'yes';
     var result = document.getElementsByClassName("holder")[0];
     console.log(result)
     $sce.trustAsResourceUrl(location)
     result.appendChild(theIframe);
   }
-  $scope.test = $sce.getTrustedResourceUrl
   $scope.getArticlesForUser();
   $scope.displayCategoriesForUser();
 }]);
