@@ -43,23 +43,24 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngOpenFB'])
       }
     })
 
-  .state('app.search', {
-    url: '/search',
-    views: {
-      'menuContent': {
-        templateUrl: 'templates/search.html'
-      }
-    }
-  })
-
-  .state('app.browse', {
-      url: '/browse',
+    .state('app.search', {
+      url: '/search',
       views: {
         'menuContent': {
-          templateUrl: 'templates/browse.html'
+          templateUrl: 'templates/search.html'
         }
       }
     })
+
+    .state('app.browse', {
+        url: '/browse',
+        views: {
+          'menuContent': {
+            templateUrl: 'templates/browse.html'
+          }
+        }
+    })
+
     .state('app.profile', {
       url: '/profile',
       views: {
@@ -79,25 +80,25 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngOpenFB'])
       }
     })
 
-  .state('app.single', {
-    url: '/playlists/:playlistId',
-    views: {
-      'menuContent': {
-        templateUrl: 'templates/playlist.html',
-        controller: 'PlaylistCtrl'
+    .state('app.single', {
+      url: '/playlists/:playlistId',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/playlist.html',
+          controller: 'PlaylistCtrl'
+        }
       }
-    }
-  })
+    })
 
-  .state('app.articles', {
-    url: '/articles/:catName',
-    views: {
-      'menuContent': {
-        templateUrl: 'templates/articles.html',
-        controller: 'ArticlesCtrl'
+    .state('app.articles', {
+      url: '/articles/:catName',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/articles.html',
+          controller: 'ArticlesCtrl'
+        }
       }
-    }
-  });
+    });
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/app/login');
 });
