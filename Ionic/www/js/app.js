@@ -27,10 +27,10 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngOpenFB'])
   $stateProvider
 
     .state('app', {
-    url: '/app',
-    abstract: true,
-    templateUrl: 'templates/menu.html',
-    controller: 'AppCtrl'
+      url: '/app',
+      abstract: true,
+      templateUrl: 'templates/menu.html',
+      controller: 'AppCtrl'
     })
 
     .state('app.login', {
