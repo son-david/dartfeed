@@ -58,11 +58,11 @@ angular.module('starter.controllers', ['ngOpenFB', 'app.services'])
               console.log('1',$scope.me);
               
               $http({
-                url: '/users', 
+                url: 'http://localhost:8000/users', 
                 method: 'GET',
                 data : $scope.me.id
               });
-              
+
               $location.path('/app/profile');
             });
         });
