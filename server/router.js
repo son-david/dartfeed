@@ -14,11 +14,11 @@ module.exports = function (router) {
   router.get('/api/auth/signin', authController.signin); 
   router.get('/api/auth/protected', authController.checkAuth, authController.protectedPage); 
 
-  router.get('/api/auth/signout', authController.signout);
-  router.get('/api/auth/callback', authController.callback);
-  router.get('/api/auth/facebook', passport.authenticate('facebook'));
-  router.get('/api/auth/facebook/callback',
-  passport.authenticate('facebook', { successRedirect: '/api/auth/callback', failureRedirect: '/api/auth/signin' }));
+  // router.get('/api/auth/signout', authController.signout);
+  // router.get('/api/auth/callback', authController.callback);
+  // router.get('/api/auth/facebook', passport.authenticate('facebook'));
+  // router.get('/api/auth/facebook/callback',
+  // passport.authenticate('facebook', { successRedirect: '/api/auth/callback', failureRedirect: '/api/auth/signin' }));
 
   router.get('/api/articles', articleController.getArticles);
   router.post('/api/articles', articleController.insertArticles);
