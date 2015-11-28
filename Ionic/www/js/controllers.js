@@ -107,7 +107,7 @@ angular.module('starter.controllers', ['ngOpenFB', 'app.services'])
       .then(function (articles){
         console.log(articles)
         $scope.articles = articles;
-        
+
       });
   }
 
