@@ -1,11 +1,11 @@
 var express = require('express'); 
-var session = require('express-session');
+// var session = require('express-session');
 var mongoose = require('mongoose'); 
 var router = require('./router.js'); 
 var bodyParser = require('body-parser'); 
 var cookieParser = require('cookie-parser'); 
 var passport = require('passport')
-var FacebookStrategy = require('passport-facebook').Strategy;
+// var FacebookStrategy = require('passport-facebook').Strategy;
 var config = require('./config.js'); 
 var User = require('./users/userModel.js'); 
 var logger = require('./middleware/logger');

@@ -8,10 +8,7 @@ var UserProfileSchema = new mongoose.Schema({
  username: String,
  fbToken: String,
  fbId: Number, 
- categories: [UserCategorySchema],
- history: [ {articleID: Number} ],
- following: [ {userID: Number} ],
- followers: [ {userID: Number} ]
+ categories: [UserCategorySchema]
 });
 
 UserProfileSchema.pre('save', function(next){
