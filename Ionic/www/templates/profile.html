@@ -1,12 +1,12 @@
-<ion-view view-title="Profile">
+<ion-view view-title="Dartfeed">
   <ion-content ng-controler="UserController">
     <ion-list>
       <h1 style='text-align: center;'> {{me.name}}'s Profile </h1>
-      
+
       <img src = '{{me.picture}}'
       class='userImg'>
       <h3 style='text-align: center;'>My Interests </h3>
-      
+
       <ion-item ng-repeat="category in categories" href="#/app/articles/{{category.title}}">
         {{category.title}}
       </ion-item>

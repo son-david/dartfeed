@@ -1,4 +1,8 @@
 /* Empty. Add your own CSS if you like */
+@font-face {
+  font-family: 'MyWebFont';
+  src: url('Exo2-Black.otf');
+}
 .userImg {
   border-radius: 50%;
   height: 100px;
@@ -7,3 +11,31 @@
   display: block;
   padding: 10px;
 }
+
+
+.loginPage {
+  font-family: 'MyWebFont';
+  font-size: 60px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 250;
+  padding: 20px;
+  line-height: 26.3999996185303px;
+}
+
+.info {
+  font-family: 'MyWebFont', sans-serif;
+  font-size: 30px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 250;
+  padding: 20px;
+  line-height: 26.3999996185303px;
+}
+
+button {
+  font-family: 'MyWebFont';
+  font-size: 80px;
+  width: 40%;
+}
+

@@ -26,21 +26,17 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngOpenFB'])
 .config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
 
+    .state('login', {
+      url: '/login',
+          templateUrl: 'templates/login.html',
+          controller: 'AppCtrl'
+    })
+
     .state('app', {
       url: '/app',
       abstract: true,
       templateUrl: 'templates/menu.html',
       controller: 'AppCtrl'
-    })
-
-    .state('app.login', {
-      url: '/login',
-      views: {
-        'menuContent': {
-          templateUrl: 'templates/login.html',
-          controller: 'AppCtrl'
-        }
-      }
     })
 
     .state('app.search', {
@@ -100,5 +96,5 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngOpenFB'])
       }
     });
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/app/login');
+  $urlRouterProvider.otherwise('/login');
 });
