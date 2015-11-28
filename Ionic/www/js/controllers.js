@@ -1,7 +1,7 @@
 
 angular.module('starter.controllers', ['ngOpenFB', 'app.services'])
 
-.controller('AppCtrl', ['$scope', '$ionicModal', '$timeout', 'ngFB', '$location', '$state', '$ionicHistory','Helper',  function($scope, $ionicModal, $timeout, ngFB, $location, $state, $ionicHistory, Helper) {
+.controller('AppCtrl', ['$scope','$http', '$ionicModal', '$timeout', 'ngFB', '$location', '$state', '$ionicHistory','Helper',  function($scope, $http, $ionicModal, $timeout, ngFB, $location, $state, $ionicHistory, Helper) { 
 
   // With the new view caching in Ionic, Controllers are only called
   // when they are recreated or on app start, instead of every page change.
@@ -56,6 +56,13 @@ angular.module('starter.controllers', ['ngOpenFB', 'app.services'])
               });
               Helper.store($scope.me);
               console.log('1',$scope.me);
+              
+              $http({
+                url: '/users', 
+                method: 'GET',
+                data : $scope.me.id
+              });
+              
               $location.path('/app/profile');
             });
         });
