@@ -79,22 +79,22 @@ angular.module('starter.controllers', ['ngOpenFB', 'app.services'])
   };
 }])
 
-.controller('UserController', ['$scope', '$state','Helper', function($scope, $state, Helper) {
+.controller('UserController', ['$scope', '$state','Helper', 'Feed',  function($scope, $state, Helper, Feed) {
 
   $scope.me = Helper.me[0];
   console.log('look', Helper.me);
 
-  $scope.categories = [
-    { title: 'MoneyTech', id: 1 },
-    { title: 'SportsTech', id: 2 },
-    { title: 'OtherTech', id: 3 },
-    { title: 'OneMore', id: 4 },
-    { title: 'Evenetually', id: 5 },
-    { title: 'Replaced', id: 6 }
-  ];
   $scope.addCatNav = function () {
     $state.go('app.addCat');
   }
+  $scope.getCat = function() {
+    Feed.getCategories().then( function (categories) {
+      $scope.catList = categories.data.map( function (cat) {
+        return cat.name;
+      });
+    });
+  }
+  $scope.getCat();
 }])
 
 .controller('PlaylistCtrl', function($scope, $stateParams) {
