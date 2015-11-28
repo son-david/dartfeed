@@ -7,8 +7,9 @@
       class='userImg'>
       <h3 style='text-align: center;'>My Interests </h3>
 
-      <ion-item ng-repeat="category in categories" href="#/app/articles/{{category.title}}">
-        {{category.title}}
+      <ion-item ng-repeat="cat in catList" href="#/app/articles/{{category.title}}">
+        {{cat}}
+
       </ion-item>
       <button ng-click='addCatNav()' class="button button-full button-positive">
         Add New Categories
