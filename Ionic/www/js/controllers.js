@@ -1,7 +1,7 @@
 
 angular.module('starter.controllers', ['ngOpenFB', 'app.services'])
 
-.controller('AppCtrl', ['$scope', '$ionicModal', '$timeout', 'ngFB', '$location', '$state', '$ionicHistory','Helper',  function($scope, $ionicModal, $timeout, ngFB, $location, $state, $ionicHistory, Helper) {
+.controller('AppCtrl', ['$scope','$http', '$ionicModal', '$timeout', 'ngFB', '$location', '$state', '$ionicHistory','Helper',  function($scope, $http, $ionicModal, $timeout, ngFB, $location, $state, $ionicHistory, Helper) { 
 
   // With the new view caching in Ionic, Controllers are only called
   // when they are recreated or on app start, instead of every page change.
@@ -30,18 +30,6 @@ angular.module('starter.controllers', ['ngOpenFB', 'app.services'])
     $scope.modal.show();
   };
 
-
-  // Perform the login action when the user submits the login form
-  $scope.doLogin = function() {
-    console.log('Doing login', $scope.loginData);
-
-    // Simulate a login delay. Remove this and replace with your login
-    // code if using a login system
-    $timeout(function() {
-      $scope.closeLogin();
-    }, 1000);
-  };
-
   $scope.fbLogin = function () {
     ngFB.login({scope: 'email, user_friends'}).then(
         function (response) {
@@ -68,6 +56,13 @@ angular.module('starter.controllers', ['ngOpenFB', 'app.services'])
               });
               Helper.store($scope.me);
               console.log('1',$scope.me);
+              
+              $http({
+                url: 'http://localhost:8000/users', 
+                method: 'GET',
+                data : $scope.me.id
+              });
+
               $location.path('/app/profile');
             });
         });

@@ -15,9 +15,9 @@ module.exports = {
       if(err){
         res.send(err);
       } 
-      console.log(req.body.categories.category);
+      // console.log(req.body.categories.category);
       user.categories.push({name: req.body.categories.category});
-      console.log(user.categories);
+      // console.log(user.categories);
       user.save(function(err) {
         if (err) {
           res.send(err);
