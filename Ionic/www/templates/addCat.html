@@ -2,9 +2,18 @@
   <ion-content ng-controler="UserController">
     <ion-list>
       <h1 style='text-align: center;'> Add Categories </h1>
-      <ion-item ng-repeat="cat in catList" href="#/app/playlists/{{category.id}}">
-        {{cat}}
-      </ion-item>
+      
+      <ion-checkbox ng-repeat="cat in catList">{{cat}}</ion-checkbox>
     </ion-list>
   </ion-content>
 </ion-view>
+
+
+  <!-- <ul class="list">
+    <li class="item item-checkbox">
+       <label class="checkbox">
+         <input type="checkbox">
+       </label>
+       Flux Capacitor
+    </li>
+  </ul> -->
