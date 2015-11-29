@@ -102,10 +102,9 @@ angular.module('starter.controllers', ['ngOpenFB', 'app.services'])
   }
   $scope.getCat();
 
-  // $scope.addCat = function () {
-  //   Feed.
-  // }
-
+  $scope.addCat = function (category) {
+    Feed.updateUserCategories(category);
+  }
 
 }])
 
