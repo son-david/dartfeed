@@ -6,11 +6,14 @@
       <img src = '{{me.picture}}'
       class='userImg'>
       <h3 style='text-align: center;'>My Interests </h3>
-
+      <ion-item ng-repeat='categ in categories'>
+      {{categ}}
+      </ion-item>
       <ion-item ng-repeat="cat in catList" href="#/app/articles/{{category.title}}">
         {{cat}}
 
       </ion-item>
+      
       <button ng-click='addCatNav()' class="button button-full button-positive">
         Add New Categories
       </button>

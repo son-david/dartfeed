@@ -9,9 +9,11 @@
 
     <!-- <iframe src="{{getIframeSrc(url)}}"></iframe> -->
     <!-- </div> -->
-    <div collection-repeat = 'test in categories.data[0].articles'>
-    <p>{{test.title}}</p>
-    <a ><img src="{{test.imgURL}}" height='300px' width= '100%' ng-click="createIframe(this,test.linkURL)"></a>
+    <div class = 'articleContainer'>
+        <div collection-repeat = 'test in categories.data[3].articles'>
+        <p>{{test.title}}</p>
+        <a><img src="{{test.imgURL}}" height='300px' width= '100%' ng-click="createIframe(this,test.linkURL)"></a>
+        </div>
     </div>
     
     <!-- <iframe ng-src="{{url}}"> </iframe> -->
