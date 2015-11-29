@@ -20,6 +20,9 @@ module.exports = function (router) {
   // router.get('/api/auth/facebook/callback',
   // passport.authenticate('facebook', { successRedirect: '/api/auth/callback', failureRedirect: '/api/auth/signin' }));
 
+  router.post('/user', userController.getUser);
+
+
   router.get('/api/articles', articleController.getArticles);
   router.post('/api/articles', articleController.insertArticles);
 
