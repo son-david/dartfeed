@@ -64,7 +64,7 @@ angular.module('starter.controllers', ['ngOpenFB', 'app.services'])
                 method: 'POST',
                 data : $scope.me
               }).then(function(res) {
-                console.log('(controllers.js) this is user data as exists on server:' res.data);
+                console.log('(controllers.js) this is user data as exists on server:', res.data);
               });
             });
         });
