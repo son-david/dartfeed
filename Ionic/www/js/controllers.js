@@ -83,6 +83,7 @@ angular.module('starter.controllers', ['ngOpenFB', 'app.services'])
   $scope.addCatNav = function () {
     $state.go('app.addCat');
   }
+
   $scope.getCat = function() {
     Feed.getCategories().then( function (categories) {
       $scope.catList = categories.data.map( function (cat) {
@@ -93,6 +94,12 @@ angular.module('starter.controllers', ['ngOpenFB', 'app.services'])
     });
   }
   $scope.getCat();
+
+  $scope.addCat = function () {
+    Feed.
+  }
+
+
 }])
 
 .controller('PlaylistCtrl', function($scope, $stateParams) {
