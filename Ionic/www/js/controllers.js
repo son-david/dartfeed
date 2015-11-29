@@ -115,9 +115,14 @@ angular.module('starter.controllers', ['ngOpenFB', 'app.services'])
       $scope.urlListForIframe = categories.data[0].articles.map(function(el){
         return el.linkURL;
       });
-      $scope.urlListForIframe.forEach(function(url){
-        $sce.trustAsResourceUrl(url);
-      });
+      $scope.categories.data.forEach(function(category) {
+        console.log(category);
+        category.articles.forEach(function(article){
+          $scope[category.name] = [];
+          $scope[category.name].push(article);
+        })
+      })
+      console.log($scope['MoneyTech'])
     });
   }
   $scope.getIframeSrc = function(url){
