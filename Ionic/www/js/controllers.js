@@ -116,13 +116,13 @@ angular.module('starter.controllers', ['ngOpenFB', 'app.services'])
         return el.linkURL;
       });
       $scope.categories.data.forEach(function(category) {
-        console.log(category);
+        console.log('here' , category.name);
+        $scope[category.name] = []
         category.articles.forEach(function(article){
-          $scope[category.name] = [];
           $scope[category.name].push(article);
         })
       })
-      console.log($scope['MoneyTech'])
+      console.log($scope['GamesTech'])
     });
   }
   $scope.getIframeSrc = function(url){
