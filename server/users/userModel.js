@@ -11,9 +11,4 @@ var UserProfileSchema = new mongoose.Schema({
  categories: [UserCategorySchema]
 });
 
-UserProfileSchema.pre('save', function(next){
-  console.log("pre save");
-  next(); 
-})
-
 module.exports = mongoose.model('UserProfiles', UserProfileSchema);
