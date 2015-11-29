@@ -9,11 +9,16 @@ module.exports = {
   },
 
   getUser: function(req, res, next){
-    User.find({_id: req.params.user_id}, function (err, user){
+    User.find({fbId: req.body.id}, function (err, user){
       if(err){
         console.log(err);
-      } else{  
-        res.json(user);
+      } else{
+        if (!user ){
+          console.log('no user');
+        } else {
+          console.log('yes user', user);
+          res.json(user);
+        }
       }
     });
   },

@@ -56,14 +56,16 @@ angular.module('starter.controllers', ['ngOpenFB', 'app.services'])
               });
               Helper.store($scope.me);
               console.log('1',$scope.me);
-              
-              $http({
-                url: 'http://localhost:8000/users', 
-                method: 'GET',
-                data : $scope.me.id
-              });
 
               $location.path('/app/profile');
+            }).then(function(){ //user info to server
+              $http({
+                url: 'http://localhost:8000/user', 
+                method: 'POST',
+                data : $scope.me
+              }).then(function(data) {
+                console.log(res.data);
+              });
             });
         });
   };
