@@ -2,8 +2,8 @@
   <ion-content ng-controler="UserController">
     <ion-list>
       <h1 style='text-align: center;'> Add Categories </h1>
-      <ion-item ng-repeat="category in categories" href="#/app/playlists/{{category.id}}">
-        {{category.title}}
+      <ion-item ng-repeat="cat in catList" href="#/app/playlists/{{category.id}}">
+        {{cat}}
       </ion-item>
     </ion-list>
   </ion-content>
