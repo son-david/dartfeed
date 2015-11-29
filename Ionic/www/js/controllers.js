@@ -63,8 +63,8 @@ angular.module('starter.controllers', ['ngOpenFB', 'app.services'])
                 url: 'http://localhost:8000/user', 
                 method: 'POST',
                 data : $scope.me
-              }).then(function(data) {
-                console.log(res.data);
+              }).then(function(res) {
+                console.log('(controllers.js) this is user data as exists on server:' res.data);
               });
             });
         });
@@ -79,7 +79,6 @@ angular.module('starter.controllers', ['ngOpenFB', 'app.services'])
 .controller('UserController', ['$scope', '$state','Helper', 'Feed',  function($scope, $state, Helper, Feed) {
 
   $scope.me = Helper.me[0];
-  console.log('look', Helper.me);
 
   $scope.addCatNav = function () {
     $state.go('app.addCat');
@@ -89,6 +88,7 @@ angular.module('starter.controllers', ['ngOpenFB', 'app.services'])
       $scope.catList = categories.data.map( function (cat) {
         return cat.name;
       });
+      $scope.catListwArticles = categories.data;
     });
   }
   $scope.getCat();
