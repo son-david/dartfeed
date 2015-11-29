@@ -91,13 +91,20 @@ angular.module('starter.controllers', ['ngOpenFB', 'app.services'])
       });
       $scope.catListwArticles = categories.data;
       console.log('$scope.catListwArticles',$scope.catListwArticles);
+      categories.data.forEach(function(category) {
+        console.log('here' , category.name);
+        $scope[category.name] = []
+        category.articles.forEach(function(article){
+          $scope[category.name].push(article);
+        })
+      })
     });
   }
   $scope.getCat();
 
-  $scope.addCat = function () {
-    Feed.
-  }
+  // $scope.addCat = function () {
+  //   Feed.
+  // }
 
 
 }])
@@ -119,8 +126,11 @@ angular.module('starter.controllers', ['ngOpenFB', 'app.services'])
   $scope.displayCategoriesForUser = function () {
     Feed.getCategories().then( function (categories) {
       $scope.categories = categories;
-      $scope.urlListForIframe = categories.data[0].articles.map(function(el){
+      $scope.urlListForIframe = categories.data[3].articles.map(function(el){
         return el.linkURL;
+      });
+      $scope.catList = categories.data.map( function (cat) {
+        return cat.name;
       });
       $scope.categories.data.forEach(function(category) {
         console.log('here' , category.name);
@@ -147,6 +157,8 @@ angular.module('starter.controllers', ['ngOpenFB', 'app.services'])
     console.log(result)
     $sce.trustAsResourceUrl(location)
     result.appendChild(theIframe);
+    var test = document.getElementsByClassName("articleContainer")[0];
+    test.innerHTML = '';
   }
   $scope.getArticlesForUser();
   $scope.displayCategoriesForUser();
