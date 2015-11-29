@@ -89,6 +89,7 @@ angular.module('starter.controllers', ['ngOpenFB', 'app.services'])
         return cat.name;
       });
       $scope.catListwArticles = categories.data;
+      console.log('$scope.catListwArticles',$scope.catListwArticles);
     });
   }
   $scope.getCat();
