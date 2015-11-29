@@ -1,3 +1,4 @@
+
 var Article = require('./articleModel');
 var Category = require('../categories/categoryModel');
 var Promise = require('bluebird');
