@@ -39,11 +39,9 @@ module.exports = {
       if (err) {
         console.log(err);
       } else {
-        console.log('test', req.body.categories);
         user.set('categories', req.body.categories);
         user.save();
         res.json(user);
-        console.log('saved user', user);
       }
     })
   }

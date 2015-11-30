@@ -104,6 +104,8 @@ angular.module('starter.controllers', ['ngOpenFB', 'app.services'])
         })
       })
 
+      console.log('$scope.catList', $scope.catList);
+
       $http({
         url: 'http://localhost:8000/user', 
         method: 'POST',
@@ -111,7 +113,11 @@ angular.module('starter.controllers', ['ngOpenFB', 'app.services'])
       }).then(function(res) {
         console.log('res.data.categories', res.data.categories)
         res.data.categories.forEach(function(category) {
-          $scope.catList[category].checked = true;
+          $scope.catList.forEach(function(item) {
+            if (item.name === category) {
+              item.checked = true;
+            }
+          });
         })
       });
 
