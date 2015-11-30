@@ -15,15 +15,12 @@ angular.module('app.services', [])
     });
   }
 
-  var updateUserCategories = function (category){
-    console.log(category);
+  var updateUserCategories = function (id, categoryArray){
     return $http({
       url: 'http://localhost:8000/user', 
       method: 'PUT',
-      data: {
-        categories: {
-          category: category.toString()
-        }
+      data: {id : id,
+        categories : categoryArray
       }
     });
   }

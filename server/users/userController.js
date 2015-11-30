@@ -16,11 +16,9 @@ module.exports = {
         if (!user ){
           User.create({username: req.body.name, fbId: req.body.id})
             .then(function(user){
-              console.log('made user');
               res.json(user);
             });
         } else {
-          console.log('yes user', user);
           res.json(user);
         }
       }
@@ -34,5 +32,19 @@ module.exports = {
       }  
       res.json(users);
     });
+  },
+
+  addCats: function(req, res, next) {
+    User.findOne({fbId: req.body.id}, function (err, user){
+      if (err) {
+        console.log(err);
+      } else {
+        console.log('test', req.body.categories);
+        user.set('categories', req.body.categories);
+        user.save();
+        res.json(user);
+        console.log('saved user', user);
+      }
+    })
   }
 }
