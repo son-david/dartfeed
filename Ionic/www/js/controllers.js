@@ -101,13 +101,35 @@ angular.module('starter.controllers', ['ngOpenFB', 'app.services'])
           $scope[category.name].push(article);
         })
       })
+
+      $http({
+        url: 'http://localhost:8000/user', 
+        method: 'POST',
+        data : $scope.me
+      }).then(function(res) {
+        console.log('res.data.categories', res.data.categories)
+        res.data.categories.forEach(function(category) {
+          $scope.catList[category].checked = true;
+        })
+      });
+
     });
   }
   $scope.getCat();
 
-  $scope.addCat = function () {
+  $scope.saveCats = function () {
     console.log('$scope', $scope.catList);
-    // Feed.updateUserCategories();
+    var userCategories = [];
+    $scope.catList.forEach(function(category) {
+      if (category.checked) {
+        userCategories.push(category.name);
+      }
+    })
+    console.log('userCategories', userCategories);
+    Feed.updateUserCategories($scope.me.id, userCategories)
+      .then(function(res) {
+        console.log('user after categories', res.data);
+      })
   }
 
 }])
