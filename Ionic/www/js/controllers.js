@@ -83,7 +83,9 @@ angular.module('starter.controllers', ['ngOpenFB', 'app.services'])
   $scope.addCatNav = function () {
     $state.go('app.addCat');
   }
-
+  $scope.passCategory = function(cat) {
+    Helper.catStore(cat);
+  }
   $scope.getCat = function() {
     Feed.getCategories().then( function (categories) {
       $scope.catList = categories.data.map( function (cat) {
@@ -137,7 +139,7 @@ angular.module('starter.controllers', ['ngOpenFB', 'app.services'])
 .controller('PlaylistCtrl', function($scope, $stateParams) {
 })
 
-.controller('ArticlesCtrl', ['$scope', '$sce', '$stateParams', 'Feed', function($scope, $sce, $stateParams, Feed) {
+.controller('ArticlesCtrl', ['$scope', '$sce', '$stateParams', 'Feed', 'Helper', function($scope, $sce, $stateParams, Feed, Helper) {
 
   $scope.getArticlesForUser = function (){
     Feed.getArticlesForUser()
@@ -147,7 +149,10 @@ angular.module('starter.controllers', ['ngOpenFB', 'app.services'])
 
       });
   }
-
+  $scope.getArticlesForCat = function(){
+    $scope.passed = $scope[Helper.catHolder[0]]
+    return $scope.passed;
+  }
   $scope.displayCategoriesForUser = function () {
     Feed.getCategories().then( function (categories) {
       $scope.categories = categories;
