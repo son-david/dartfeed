@@ -76,7 +76,7 @@ angular.module('starter.controllers', ['ngOpenFB', 'app.services'])
   };
 }])
 
-.controller('UserController', ['$scope', '$state','Helper', 'Feed',  function($scope, $state, Helper, Feed) {
+.controller('UserController', ['$scope', '$http', '$state','Helper', 'Feed',  function($scope, $http, $state, Helper, Feed) {
 
   $scope.me = Helper.me[0];
 
@@ -87,12 +87,15 @@ angular.module('starter.controllers', ['ngOpenFB', 'app.services'])
   $scope.getCat = function() {
     Feed.getCategories().then( function (categories) {
       $scope.catList = categories.data.map( function (cat) {
-        return cat.name;
+        return {
+          name: cat.name,
+          checked : false
+        };
       });
-      $scope.catListwArticles = categories.data;
-      console.log('$scope.catListwArticles',$scope.catListwArticles);
+      // $scope.catListwArticles = categories.data;
+      // console.log('$scope.catListwArticles',$scope.catListwArticles);
       categories.data.forEach(function(category) {
-        console.log('here' , category.name);
+        console.log('categories here' , category.name);
         $scope[category.name] = []
         category.articles.forEach(function(article){
           $scope[category.name].push(article);
@@ -102,8 +105,9 @@ angular.module('starter.controllers', ['ngOpenFB', 'app.services'])
   }
   $scope.getCat();
 
-  $scope.addCat = function (category) {
-    Feed.updateUserCategories(category);
+  $scope.addCat = function () {
+    console.log('$scope', $scope.catList);
+    // Feed.updateUserCategories();
   }
 
 }])
