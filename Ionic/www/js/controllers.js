@@ -145,6 +145,8 @@ angular.module('starter.controllers', ['ngOpenFB', 'app.services'])
 
 .controller('ArticlesCtrl', ['$scope', '$sce', '$stateParams', 'Feed', 'Helper', function($scope, $sce, $stateParams, Feed, Helper) {
 
+  $scope.showContainer = true;
+
   $scope.getArticlesForUser = function (){
     Feed.getArticlesForUser()
       .then(function (articles){
@@ -182,17 +184,18 @@ angular.module('starter.controllers', ['ngOpenFB', 'app.services'])
     return url;
   }
   $scope.createIframe = function(element,location){
+    $scope.showContainer = false;
+    
     var theIframe = document.createElement("iframe");
     theIframe.src = location;
     theIframe.width = "90%";
-    theIframe.height = "10%";
+    theIframe.height = "100%";
     theIframe.scrolling = 'yes';
     var result = document.getElementsByClassName("holder")[0];
-    console.log('document.getElementsByClassName("holder")[0]',result)
     $sce.trustAsResourceUrl(location)
     result.appendChild(theIframe);
-    var test = document.getElementsByClassName("articleContainer")[0];
-    test.innerHTML = '';
+    // var test = document.getElementsByClassName("articleContainer")[0];
+    // test.innerHTML = '';
   }
   $scope.getArticlesForUser();
   $scope.displayCategoriesForUser();

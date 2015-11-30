@@ -89,6 +89,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngOpenFB'])
     })
 
     .state('app.articles', {
+      cache: false,
       url: '/articles/:catName',
       views: {
         'menuContent': {

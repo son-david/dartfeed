@@ -1,15 +1,10 @@
 <ion-view view-title="Articles">
-  <ion-content scroll="true" overflow-scroll="true" class="iframe-wrapper">
-    <div class = 'holder'></div>
-    <h1>Articles</h1>
-    <!-- <p>{{categories.data[0].articles}}</p>
-    <p> {{categoryList}} </p> -->
-    <!-- <div collection-repeat='url in urlListForIframe'> -->
-    <!-- <p>{{url}} </p> -->
+  <ion-content scroll="true" overflow-scroll="false" class="iframe-wrapper">
 
-    <!-- <iframe src="{{getIframeSrc(url)}}"></iframe> -->
-    <!-- </div> -->
-    <div class = 'articleContainer'>
+    <div class = 'holder'></div>
+
+    <div class = 'articleContainer' ng-show="showContainer">
+        <h1>Articles</h1>
         <div collection-repeat = 'test in getArticlesForCat()'>
         <p>{{test.title}}</p>
         <a><img src="{{test.imgURL}}" height='300px' width= '100%' ng-click="createIframe(this,test.linkURL)"></a>
@@ -17,6 +12,6 @@
 
     </div>
     
-    <!-- <iframe ng-src="{{url}}"> </iframe> -->
+
   </ion-content>
 </ion-view>
