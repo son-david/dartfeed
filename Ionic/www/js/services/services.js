@@ -18,7 +18,7 @@ angular.module('app.services', [])
   var updateUserCategories = function (category){
     console.log(category);
     return $http({
-      url: '/api/categories', 
+      url: 'http://localhost:8000/user', 
       method: 'PUT',
       data: {
         categories: {

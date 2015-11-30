@@ -3,7 +3,10 @@
     <ion-list>
       <h1 style='text-align: center;'> Add Categories </h1>
 
-      <ion-checkbox ng-repeat="cat in catList">{{cat}}</ion-checkbox>
+      <ion-checkbox ng-repeat="cat in catList" ng-model="cat.checked" ng-checked="cat.checked" ng-click="test(cat)">{{cat.name}}</ion-checkbox>
+      <button ng-click='addCat()' class="button button-full button-positive">
+        Save Categories
+      </button>
     </ion-list>
   </ion-content>
 </ion-view>
