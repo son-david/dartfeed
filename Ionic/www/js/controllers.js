@@ -74,7 +74,7 @@ angular.module('starter.controllers', ['ngOpenFB', 'app.services'])
   };
 }])
 
-.controller('UserController', ['$scope', '$http', '$state','Helper', 'Feed',  function($scope, $http, $state, Helper, Feed) {
+.controller('UserController', ['$scope', '$http', '$location', '$state','Helper', 'Feed',  function($scope, $http, $location, $state, Helper, Feed) {
 
   $scope.me = Helper.me[0];
 
@@ -129,11 +129,13 @@ angular.module('starter.controllers', ['ngOpenFB', 'app.services'])
         userCategories.push(category.name);
       }
     })
-    console.log('userCategories', userCategories);
     Feed.updateUserCategories($scope.me.id, userCategories)
       .then(function(res) {
         console.log('user after categories', res.data);
-      })
+        $location.path('/app/profile');
+      });
+      
+
   }
 
 }])
