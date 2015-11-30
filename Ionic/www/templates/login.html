@@ -1,20 +1,19 @@
-<ion-view>
+<ion-view class="background">
   <ion-content>
     <div class="row row-center">
-    <div class="col text-center">
-      <h1 class="loginPage">DartFeed</h1>
-      <p class="info">Tech news made easy</p>
-    </div>
-    
+      <div class="col text-center">
+        <h1 class="loginPage">DartFeed</h1>
+        <p class="info">Tech news made easy</p>
+<!--         <img src='http://chooserethink.com/wp-content/uploads/2014/07/dart.png'>-->
+      </div>
     </div>
   </ion-content>
-  <img src='http://chooserethink.com/wp-content/uploads/2014/07/dart.png'>
   <div class="col text-center" style="position: absolute; bottom: 0px; width: 100%">
-    <label class="item">
-      <button class="button button-block button-positive" ng-click="fbLogin()">
+      <button class="button raised button-positive" ng-click="fbLogin()">
       Login with Facebook
+      <paper-ripple></paper-ripple>
       </button>
-    </label>
   </div>
 </ion-view>
+
 
