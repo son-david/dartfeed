@@ -173,7 +173,7 @@ angular.module('starter.controllers', ['ngOpenFB', 'app.services'])
           $scope[category.name].push(article);
         })
       })
-      console.log($scope['GamesTech'])
+      console.log("$scope['GamesTech']",$scope['GamesTech'])
     });
   }
   $scope.getIframeSrc = function(url){
@@ -185,10 +185,10 @@ angular.module('starter.controllers', ['ngOpenFB', 'app.services'])
     var theIframe = document.createElement("iframe");
     theIframe.src = location;
     theIframe.width = "90%";
-    theIframe.height = "100%";
+    theIframe.height = "10%";
     theIframe.scrolling = 'yes';
     var result = document.getElementsByClassName("holder")[0];
-    console.log(result)
+    console.log('document.getElementsByClassName("holder")[0]',result)
     $sce.trustAsResourceUrl(location)
     result.appendChild(theIframe);
     var test = document.getElementsByClassName("articleContainer")[0];
