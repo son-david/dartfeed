@@ -10,10 +10,11 @@
     <!-- <iframe src="{{getIframeSrc(url)}}"></iframe> -->
     <!-- </div> -->
     <div class = 'articleContainer'>
-        <div collection-repeat = 'test in categories.data[3].articles'>
+        <div collection-repeat = 'test in getArticlesForCat()'>
         <p>{{test.title}}</p>
         <a><img src="{{test.imgURL}}" height='300px' width= '100%' ng-click="createIframe(this,test.linkURL)"></a>
         </div>
+
     </div>
     
     <!-- <iframe ng-src="{{url}}"> </iframe> -->

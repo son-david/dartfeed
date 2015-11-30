@@ -55,9 +55,17 @@ angular.module('app.services', [])
   var store = function (val) {
     me[0] = (val);
   }
+  var catHolder = [];
+
+  var catStore = function(val) {
+    catHolder[0] = val;
+    console.log(catHolder)
+  }
 
   return {
     me : me,
-    store : store
+    store : store,
+    catHolder: catHolder,
+    catStore: catStore
   }
 });

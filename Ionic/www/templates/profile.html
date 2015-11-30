@@ -9,7 +9,7 @@
       <ion-item ng-repeat='categ in categories'>
       {{categ}}
       </ion-item>
-      <ion-item ng-repeat="cat in catList" href="#/app/articles/{{category.title}}">
+      <ion-item ng-repeat="cat in catList" href="#/app/articles/{{category.title}}" ng-click='passCategory(cat.name)'>
         {{cat.name}}
 
       </ion-item>
