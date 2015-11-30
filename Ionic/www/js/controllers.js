@@ -36,7 +36,6 @@ angular.module('starter.controllers', ['ngOpenFB', 'app.services'])
 
           ngFB.api({path: '/me'})
             .then(function (res) {
-              console.log('pizza');
               angular.extend($scope.me, res);
             }, function( err ) {
               console.log(err);
@@ -55,7 +54,6 @@ angular.module('starter.controllers', ['ngOpenFB', 'app.services'])
                 disableBack: true
               });
               Helper.store($scope.me);
-              console.log('1',$scope.me);
 
               $location.path('/app/profile');
             }).then(function(){ //user info to server
@@ -97,7 +95,6 @@ angular.module('starter.controllers', ['ngOpenFB', 'app.services'])
       // $scope.catListwArticles = categories.data;
       // console.log('$scope.catListwArticles',$scope.catListwArticles);
       categories.data.forEach(function(category) {
-        console.log('categories here' , category.name);
         $scope[category.name] = []
         category.articles.forEach(function(article){
           $scope[category.name].push(article);
@@ -109,11 +106,16 @@ angular.module('starter.controllers', ['ngOpenFB', 'app.services'])
         method: 'POST',
         data : $scope.me
       }).then(function(res) {
-        console.log('res.data.categories', res.data.categories)
         res.data.categories.forEach(function(category) {
-          $scope.catList[category].checked = true;
+          $scope.catList.forEach(function(item) {
+            if (item.name === category) {
+              item.checked = true;
+            }
+          });
         })
       });
+
+      console.log("$scope.catList after retrieving user categories from server", $scope.catList)
 
     });
   }

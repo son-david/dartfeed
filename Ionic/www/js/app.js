@@ -24,6 +24,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngOpenFB'])
 })
 
 .config(function($stateProvider, $urlRouterProvider) {
+
   $stateProvider
 
     .state('login', {
@@ -58,6 +59,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngOpenFB'])
     })
 
     .state('app.profile', {
+      cache: false,
       url: '/profile',
       views: {
         'menuContent': {
